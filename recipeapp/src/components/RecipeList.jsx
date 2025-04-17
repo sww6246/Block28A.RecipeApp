@@ -4,8 +4,8 @@ import React, { useState, useEffect } from "react";
 
 export default function RecipeList() {
   const [recipes, setRecipes] = useState([]);
-  const [validRecipes, setValidRecipes] = useState([]); // State to hold valid recipes with working images
-  const [favoritedRecipes, setFavoritedRecipes] = useState([]); // Track favorited recipes
+  const [validRecipes, setValidRecipes] = useState([]); 
+  const [favoritedRecipes, setFavoritedRecipes] = useState([]); 
   const { token, setError } = useAuth();
 
   useEffect(() => {
@@ -13,7 +13,6 @@ export default function RecipeList() {
       const res = await fetch("https://fsa-recipe.up.railway.app/api/recipes");
       const data = await res.json();
       setRecipes(data);
-      // Filter out recipes with broken images after loading
       filterValidRecipes(data);
     };
     getRecipes();
@@ -31,13 +30,13 @@ export default function RecipeList() {
       }
       return false;
     });
-    setValidRecipes(validRecipes); // Store the valid recipes
+    setValidRecipes(validRecipes); 
   };
 
   const handleFavorite = async (recipe) => {
     if (!token) return setError("You must be logged in to favorite a recipe.");
 
-    // Add recipe to favorites
+    
     await fetch("https://fsa-recipe.up.railway.app/api/favorites", {
       method: "POST",
       headers: {
@@ -52,7 +51,6 @@ export default function RecipeList() {
       }),
     });
 
-    // Update the state to mark this recipe as favorited
     setFavoritedRecipes((prevFavorited) => [...prevFavorited, recipe.idMeal]);
   };
 
@@ -61,6 +59,10 @@ export default function RecipeList() {
   };
 
   return (
+    <div>
+    
+    <h1 className="header">Recipes!</h1>
+    <h3 className="header">View and save your favorite recipes for later.</h3>
     <div className="container">
       {validRecipes.map((recipe) => (
         <div key={recipe.idMeal} className="card">
@@ -72,6 +74,7 @@ export default function RecipeList() {
           <Link to={`/recipe/${recipe.idMeal}`} className="card-link">Learn more</Link>
         </div>
       ))}
+    </div>
     </div>
   );
 }

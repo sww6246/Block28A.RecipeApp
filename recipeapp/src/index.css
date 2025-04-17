@@ -1,7 +1,13 @@
 * {
   font-family: Arial, sans-serif;
   margin: 0;
-  box-sizing: border-box; /* ensures padding doesn’t push outside bounds */
+  box-sizing: border-box; 
+}
+
+html {
+  background: linear-gradient(to bottom, #deeeef, #002A54);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
 }
 
 body,
@@ -18,13 +24,17 @@ body > div {
 }
 
 nav {
-  display: flex; /* this was missing */
+  display: flex; 
   width: 100%;
-  background-color: darkgrey;
+  background-color: rgb(245, 236, 236);
   padding: 1em;
   justify-content: space-evenly;
   align-items: center;
   gap: 2rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  position: sticky;
+  top: 0; 
+  z-index: 1000;
 }
 
 #main {
@@ -38,30 +48,18 @@ nav {
   justify-content: center;
 }
 
-.red {
-  background-color: #b05f6d;
-  color: white;
-}
-
-.blue {
-  background-color: #275db3;
-  color: white;
-}
-
-.home {
-  background-color: aquamarine;
-  color: black;
-}
-
 a {
   color: #002A54;
   font-size: 25px;
   text-decoration: none;
   padding: 2em;
+  font-weight: bold;
 }
 
 a:hover {
   color: #FFC906;
+  transform: scale(1.1);
+  transition-duration: 0.5s;
 }
 
 #footer {
@@ -74,23 +72,23 @@ a:hover {
 
 .container {
   display: grid;
-  grid-template-columns: repeat(3, 1fr); /* 3 cards per row */
-  gap: 20px; /* Space between cards */
+  grid-template-columns: repeat(3, 1fr); 
+  gap: 20px; 
   padding: 20px;
 }
 
 .card {
-  border: 1px solid #ddd; /* Adds border around each card */
-  border-radius: 8px; /* Optional, for rounded corners */
+  border: 1px solid #ddd; 
+  border-radius: 8px; 
   padding: 15px;
   text-align: center;
   background-color: #fff;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Optional, for a subtle shadow */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); 
 }
 
 .card img {
-  width: 100%; /* Make the image take up full card width */
-  border-radius: 4px; /* Optional, for rounded image corners */
+  width: 100%; 
+  border-radius: 4px; 
 }
 
 .card h3 {
@@ -116,12 +114,12 @@ a:hover {
 
 .card a {
   text-decoration: none;
-  color: #260bd4;
+  color: #002A54;
   font-weight: bold;
 }
 
 .card a:hover {
-  text-decoration: underline;
+  color: #FFC906;
 }
 
 .card-link {
@@ -139,12 +137,12 @@ a:hover {
 }
 
 .individual-card {
-  border: 1px solid #ddd; /* Adds border around each card */
-  border-radius: 8px; /* Optional, for rounded corners */
+  border: 1px solid #ddd; 
+  border-radius: 8px; 
   padding: 15px;
   text-align: left;
   background-color: #fff;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Optional, for a subtle shadow */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); 
 }
 
 .individual-card h3 {
@@ -180,6 +178,7 @@ a:hover {
 .header {
   text-align: center;
   margin-top: 20px;
+  color: #002A54;
 }
 
 form {

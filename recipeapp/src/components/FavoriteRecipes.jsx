@@ -19,7 +19,7 @@ export default function FavoriteRecipes() {
           headers: { Authorization: `Bearer ${token}` },
         });
         const { data } = await res.json();
-        console.log("Fetched favorites:", data); // helpful debug
+        console.log("Fetched favorites:", data); 
         setFavorites(data);
       } catch (error) {
         console.error("Error fetching favorites:", error);
@@ -49,7 +49,7 @@ export default function FavoriteRecipes() {
         {favorites.map((fav) => (
           <div key={fav.id} className="card">
             <img src={fav.strMealThumb} alt={fav.name} />
-            <h3>{fav.name}</h3>
+            <h3>{fav.strMeal}</h3>
             <p>Region: {fav.strArea}</p>
 
             <button onClick={() => handleRemove(fav.id)}>Remove</button>
